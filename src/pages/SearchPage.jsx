@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useFetch } from '../hooks/useFetch';
 import { getSearchUrl } from '../services/bookService';
+import BookCard from '../components/bookCard';
 
 export default function SearchPage() {
   const [query, setQuery] = useState('tolkien');
@@ -22,7 +23,7 @@ export default function SearchPage() {
       {!carregant && !error && books && (
         <ul>
           {books.map((book) => (
-            <li key={book.key}>{book.title}</li>
+            <BookCard key={book.key} book={book} />
           ))}
         </ul>
       )}
