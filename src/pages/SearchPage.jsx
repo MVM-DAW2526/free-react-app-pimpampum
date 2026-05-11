@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useFetch } from '../hooks/useFetch';
 import { getSearchUrl } from '../services/bookService';
-import BookCard from '../components/bookCard';
+import BookCard from '../components/ui/bookCard';
 
 export default function SearchPage() {
   const [query, setQuery] = useState('tolkien');
 
-  const { data: books, carregant, error } = useFetch(getSearchUrl(query));
+  const { data: books, carregant, error } = useFetch(
+    query.trim() ? getSearchUrl(query) : null
+  );
 
   return (
     <div>
