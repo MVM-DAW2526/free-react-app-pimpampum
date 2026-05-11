@@ -7,3 +7,22 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f7a9c8;
 }
+
+.book-card {
+    background-color: white;
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
+}
+
+.book-image {
+    width: 70px;
+}
+
+.book-title {
+    color: #e369a8;
+}
+
+.book-author {
+    color: #4d9c66;
+}
