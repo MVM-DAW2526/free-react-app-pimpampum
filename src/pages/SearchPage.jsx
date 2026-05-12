@@ -3,7 +3,7 @@ import { useFetch } from '../hooks/useFetch';
 import { getSearchUrl } from '../services/bookService';
 import BookCard from '../components/ui/bookCard';
 
-export default function SearchPage() {
+export default function SearchPage( { onSelectBook } ) {
   const [query, setQuery] = useState('tolkien');
 
   const { data: books, carregant, error } = useFetch(
@@ -25,7 +25,7 @@ export default function SearchPage() {
       {!carregant && !error && books && (
         <ul>
           {books.map((book) => (
-            <BookCard key={book.key} book={book} />
+            <BookCard key={book.key} book={book} onSelect={onSelectBook} />
           ))}
         </ul>
       )}
