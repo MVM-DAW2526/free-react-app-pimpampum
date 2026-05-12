@@ -25,7 +25,7 @@ export default function SearchPage( { onSelectBook } ) {
       {!carregant && !error && books && (
         <ul>
           {books.map((book) => (
-            <BookCard key={book.key} book={book} onSelect={onSelectBook} />
+            <BookCard key={book.key} book={book} onSelectBook={onSelectBook} />
           ))}
         </ul>
       )}

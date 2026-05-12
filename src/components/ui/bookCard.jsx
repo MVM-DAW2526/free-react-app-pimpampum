@@ -1,9 +1,6 @@
-import React from 'react'
-
-function BookCard({ book }) {
+function BookCard({ book, onSelectBook }) {
   return (
-    <li className="book-card">
-
+    <li className="book-card" onClick={() => onSelectBook(book)}>
       {book.cover_i && (
         <img
           className="book-image"
@@ -11,15 +8,8 @@ function BookCard({ book }) {
           alt={book.title}
         />
       )}
-
-      <h3 className="book-title">
-        {book.title}
-      </h3>
-
-      <p className="book-author">
-        {book.author_name?.[0]}
-      </p>
-
+      <h3 className="book-title">{book.title}</h3>
+      <p className="book-author">{book.author_name?.[0]}</p>
     </li>
   )
 }
