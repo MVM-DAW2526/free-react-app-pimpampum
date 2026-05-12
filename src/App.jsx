@@ -1,13 +1,19 @@
+import { useState } from 'react';
 import './App.css'
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import SearchPage from './pages/SearchPage';
 
 function App() {
+  const [selectedBook, setSelectedBook] = useState(null);
+
   return (
     <div>
       <NavBar />
-        <SearchPage />
+      {selectedBook 
+      ? <DetailPage book={selectedBook} goBack={() => setSelectedBook(null)} />
+      : <SearchPage onSelectBook={setSelectedBook} />
+      }
       <Footer />
     </div>
   );
